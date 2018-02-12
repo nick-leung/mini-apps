@@ -7,17 +7,20 @@ var init = function () {
   // div.style.height = "100px";
   // div.style.background = "red";
   // div.style.color = "white";
-  
-  var board = document.getElementById("board");
+  var body = document.createElement("body");
+  var board = document.createElement("div");
+  board.setAttribute("id", "board");
+  document.body.appendChild(board);
+
   for (var i = 0; i < 3; i++) {
     var row = document.createElement("tr");
-    row.setAttribute("id", "row" + i);
+    row.setAttribute("id", "row:" + i);
     board.appendChild(row);
     for (var j = 0; j < 3; j++) {
-      var tableData = document.createElement("td");
-      tableData.setAttribute("id", "col" + j);
-      tableData.innerHTML = "X";
-      board.getElementsByTagName("tr")[i].appendChild(tableData);
+      var col = document.createElement("td");
+      col.setAttribute("id", "col:" + j);
+      col.innerHTML = "X";
+      row.appendChild(col);
     }
   }
 };
