@@ -4,17 +4,17 @@ var bodyParser = require('body-parser');
 var app = express();
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
  
 // parse application/json
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
-app.use(express.static('client'))
+app.use(express.static('client'));
 
 app.post('/login', (req, res) => {
-  var text = req.body.textArea;
+  var text = req.body.textarea;
   console.log('text: ' + text);
   res.end('okay');
-});
+})
 
-app.listen(3000, () => console.log('Listening on port 3000.'))
+app.listen(3000, () => console.log('Listening on port 3000.'));

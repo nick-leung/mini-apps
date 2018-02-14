@@ -1,10 +1,10 @@
 
 $(document).ready(function () {
-  var textArea;
+  var textarea;
   $("#submit").click(function () {
-    textArea = $("#textArea").val();
+    textarea = $("#textarea").val();
     $.post("http://localhost:3000/login", {
-      textArea: textArea
+      textarea: textarea
     }, function (data) {
       alert("Data Loaded: " + data);
     });
