@@ -1,6 +1,5 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var path = require('path');
 
 var app = express();
 
@@ -10,14 +9,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname + '/client/index.html')) //
-})
+app.use(express.static('client'))
 
 app.post('/login', (req, res) => {
-  console.log('req = ' + req);
   var text = req.body.textArea;
-  console.log('text = ' + text);
+  console.log('text: ' + text);
   res.end('okay');
 });
 

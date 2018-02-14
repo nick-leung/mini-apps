@@ -4,19 +4,7 @@
   <title>CSV Report Generator</title>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
   </script>
-  <script>
-    $(document).ready(function () {
-      var textArea;
-      $("#submit").click(function () {
-        textArea = $("#textArea").val();
-        $.post("http://localhost:3000/login", {
-          textArea: textArea
-        }, function (data) {
-          alert("Data Loaded: " + data);
-        });
-      });
-    });
-  </script>
+  <script type="text/javascript" src="app.js"></script>
 </head>
 
 <body>
