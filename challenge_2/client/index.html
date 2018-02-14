@@ -1,2 +1,31 @@
+<html>
 
+<head>
+  <title>CSV Report Generator</title>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+  </script>
+  <script>
+    $(document).ready(function () {
+      var textArea;
+      $("#submit").click(function () {
+        textArea = $("#textArea").val();
+        $.post("http://localhost:3000/login", {
+          textArea: textArea
+        }, function (data) {
+          alert("Data Loaded: " + data);
+        });
+      });
+    });
+  </script>
+</head>
 
+<body>
+  <h1>CSV Report Generator</h1>
+  <form>
+    <textarea type="TEXT" id="textArea" name="message">Test text.</textarea>
+    <br>
+    <input type="button" id="submit" value="Submit">
+  </form>
+</body>
+
+</html>
