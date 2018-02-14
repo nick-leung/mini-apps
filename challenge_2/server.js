@@ -14,45 +14,15 @@ app.use(express.static('client'));
 app.post('/login', (req, res) => {
   var text = req.body.textarea;
   console.log('text: ' + text);
+  console.log(typeof(text));
+  var response = JSON.stringify(convertJsonToCsvArray(JSON.parse(text)));
   // take in the text and return a csv table
-  res.end('okay');
+  res.end(response);
 })
 
 app.listen(3000, () => console.log('Listening on port 3000.'));
 
-// var flattenJsonObject = (json) => {
-//   var flattenedObjectArray = [];
-
-//   var headers = [];
-//   var keys = Object.keys(json);
-//   for (var i = 0; i < keys.length; i++) {
-//     if (keys[i] !== "children") {
-//       headers.push(keys[i]);
-//     }
-//   }
-
-//   var traverse = (obj) => {
-//     var flattenedObject = {};
-//     for (var i = 0; i < headers.length; i++) {
-//       flattenedObject[headers[i]] = obj[headers[i]];
-//     }
-//     flattenedObjectArray.push(flattenedObject);
-
-//     if (obj.children.length === 0) {
-//       return;
-//     } else {
-//       for (var i = 0; i < obj.children.length; i++) {
-//         traverse(obj.children[i]);
-//       }
-//     }
-//   }
-
-//   traverse(json);
-
-//   return flattenedObjectArray;
-// };
-
-var flattenJsonObject = (json) => {
+var convertJsonToCsvArray = (json) => {
   var array = [];
 
   var headers = [];
